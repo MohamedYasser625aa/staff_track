@@ -68,7 +68,7 @@ class _DeleteUserScreenState extends State<DeleteUserScreen> {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: Colors.red.withOpacity(0.1),
+                color: Colors.red.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Row(
@@ -122,7 +122,7 @@ class _DeleteUserScreenState extends State<DeleteUserScreen> {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(12),
-                boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10)],
+                boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10)],
               ),
               child: TextField(
                 onChanged: (value) => setState(() => _searchQuery = value.toLowerCase()),
@@ -196,7 +196,7 @@ class _DeleteUserScreenState extends State<DeleteUserScreen> {
                         border: isActive ? null : Border.all(color: Colors.grey.shade300),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.05),
+                            color: Colors.black.withValues(alpha: 0.05),
                             blurRadius: 10,
                           ),
                         ],
@@ -205,8 +205,8 @@ class _DeleteUserScreenState extends State<DeleteUserScreen> {
                         contentPadding: const EdgeInsets.all(16),
                         leading: CircleAvatar(
                           backgroundColor: isActive 
-                              ? const Color(0xFF2196F3).withOpacity(0.1)
-                              : Colors.grey.withOpacity(0.2),
+                              ? const Color(0xFF2196F3).withValues(alpha: 0.1)
+                              : Colors.grey.withValues(alpha: 0.2),
                           child: Text(
                             name.isNotEmpty ? name[0] : '?',
                             style: TextStyle(
@@ -229,7 +229,7 @@ class _DeleteUserScreenState extends State<DeleteUserScreen> {
                               Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                                 decoration: BoxDecoration(
-                                  color: Colors.red.withOpacity(0.1),
+                                  color: Colors.red.withValues(alpha: 0.1),
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                                 child: const Text(
@@ -247,7 +247,7 @@ class _DeleteUserScreenState extends State<DeleteUserScreen> {
                             Container(
                               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                               decoration: BoxDecoration(
-                                color: role == 'manager' ? Colors.purple.withOpacity(0.1) : Colors.blue.withOpacity(0.1),
+                                color: role == 'manager' ? Colors.purple.withValues(alpha: 0.1) : Colors.blue.withValues(alpha: 0.1),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: Text(

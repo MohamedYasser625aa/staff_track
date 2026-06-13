@@ -249,7 +249,7 @@ class _DeductionScreenState extends State<DeductionScreen> with SingleTickerProv
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
-              boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10)],
+              boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10)],
             ),
             padding: const EdgeInsets.all(16),
             child: Column(
@@ -258,7 +258,7 @@ class _DeductionScreenState extends State<DeductionScreen> with SingleTickerProv
                 const Text('اختر الموظف', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 12),
                 DropdownButtonFormField<String>(
-                  value: _selectedEmployeeId.isEmpty ? null : _selectedEmployeeId,
+                  initialValue: _selectedEmployeeId.isEmpty ? null : _selectedEmployeeId,
                   decoration: InputDecoration(
                     prefixIcon: const Icon(Icons.person, color: Color(0xFF2196F3)),
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
@@ -283,7 +283,7 @@ class _DeductionScreenState extends State<DeductionScreen> with SingleTickerProv
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
-              boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10)],
+              boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10)],
             ),
             child: Column(
               children: [
@@ -330,7 +330,7 @@ class _DeductionScreenState extends State<DeductionScreen> with SingleTickerProv
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: Colors.blue.withOpacity(0.1),
+                color: Colors.blue.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Row(
@@ -402,7 +402,7 @@ class _DeductionScreenState extends State<DeductionScreen> with SingleTickerProv
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10)],
+                boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10)],
               ),
               child: Column(
                 children: [
@@ -416,7 +416,7 @@ class _DeductionScreenState extends State<DeductionScreen> with SingleTickerProv
                             Container(
                               padding: const EdgeInsets.all(10),
                               decoration: BoxDecoration(
-                                color: statusColor.withOpacity(0.1),
+                                color: statusColor.withValues(alpha: 0.1),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: Icon(Icons.receipt, color: statusColor, size: 24),
@@ -449,7 +449,7 @@ class _DeductionScreenState extends State<DeductionScreen> with SingleTickerProv
                                 Container(
                                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                                   decoration: BoxDecoration(
-                                    color: statusColor.withOpacity(0.1),
+                                    color: statusColor.withValues(alpha: 0.1),
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Text(statusText, style: TextStyle(fontSize: 10, color: statusColor)),
@@ -461,12 +461,12 @@ class _DeductionScreenState extends State<DeductionScreen> with SingleTickerProv
                         const SizedBox(height: 12),
                         Row(
                           children: [
-                            Icon(Icons.person_outline, size: 14, color: Colors.grey),
+                            const Icon(Icons.person_outline, size: 14, color: Colors.grey),
                             const SizedBox(width: 4),
                             Text('بواسطة: ${data['createdByName'] ?? 'غير معروف'}',
                                 style: const TextStyle(fontSize: 11, color: Colors.grey)),
                             const Spacer(),
-                            Icon(Icons.calendar_today, size: 14, color: Colors.grey),
+                            const Icon(Icons.calendar_today, size: 14, color: Colors.grey),
                             const SizedBox(width: 4),
                             Text(
                               data['createdAt'] != null

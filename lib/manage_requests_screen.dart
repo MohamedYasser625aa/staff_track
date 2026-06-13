@@ -149,17 +149,17 @@ class _ManageRequestsScreenState extends State<ManageRequestsScreen>
   Map<String, dynamic> _getRequestStatusInfo(String status) {
     switch (status) {
       case 'pending':
-        return {'text': '⏳ قيد الانتظار', 'color': Colors.orange, 'bgColor': Colors.orange.withOpacity(0.1)};
+        return {'text': '⏳ قيد الانتظار', 'color': Colors.orange, 'bgColor': Colors.orange.withValues(alpha: 0.1)};
       case 'approved_by_manager':
-        return {'text': '✅ موافقة مشرف', 'color': Colors.blue, 'bgColor': Colors.blue.withOpacity(0.1)};
+        return {'text': '✅ موافقة مشرف', 'color': Colors.blue, 'bgColor': Colors.blue.withValues(alpha: 0.1)};
       case 'approved':
-        return {'text': '✅ مقبول', 'color': Colors.green, 'bgColor': Colors.green.withOpacity(0.1)};
+        return {'text': '✅ مقبول', 'color': Colors.green, 'bgColor': Colors.green.withValues(alpha: 0.1)};
       case 'rejected_by_manager':
-        return {'text': '❌ مرفوض (مشرف)', 'color': Colors.red, 'bgColor': Colors.red.withOpacity(0.1)};
+        return {'text': '❌ مرفوض (مشرف)', 'color': Colors.red, 'bgColor': Colors.red.withValues(alpha: 0.1)};
       case 'rejected':
-        return {'text': '❌ مرفوض', 'color': Colors.red, 'bgColor': Colors.red.withOpacity(0.1)};
+        return {'text': '❌ مرفوض', 'color': Colors.red, 'bgColor': Colors.red.withValues(alpha: 0.1)};
       default:
-        return {'text': '📋 قيد الانتظار', 'color': Colors.grey, 'bgColor': Colors.grey.withOpacity(0.1)};
+        return {'text': '📋 قيد الانتظار', 'color': Colors.grey, 'bgColor': Colors.grey.withValues(alpha: 0.1)};
     }
   }
 
@@ -575,9 +575,9 @@ class _ManageRequestsScreenState extends State<ManageRequestsScreen>
           if (showActions)
             Container(
               padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: const Color(0xFFF5F6FA),
-                borderRadius: const BorderRadius.only(
+              decoration: const BoxDecoration(
+                color: Color(0xFFF5F6FA),
+                borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20),
                 ),

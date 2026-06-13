@@ -80,7 +80,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
       final doc = await docRef.get();
       
       if (doc.exists) {
-        final data = doc.data() as Map<String, dynamic>?;
+        final data = doc.data();
         if (data != null) {
           adminName = data['name'] ?? 'مدير';
         }
@@ -171,7 +171,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
     
     Map<String, dynamic> attendanceMap = {};
     for (var doc in attendanceSnapshot.docs) {
-      final data = doc.data() as Map<String, dynamic>;
+      final data = doc.data();
       attendanceMap[data['employeeId']] = data;
     }
     
@@ -180,7 +180,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
     absentEmployees.clear();
     
     for (var doc in employeesSnapshot.docs) {
-      final data = doc.data() as Map<String, dynamic>;
+      final data = doc.data();
       final employee = {
         'id': doc.id,
         'name': data['name'] ?? 'بدون اسم',
@@ -247,7 +247,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                 ),
                 child: Row(
                   children: [
-                    Icon(Icons.people, color: Colors.white, size: 28),
+                    const Icon(Icons.people, color: Colors.white, size: 28),
                     const SizedBox(width: 12),
                     Text(
                       title,
@@ -300,7 +300,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                             ),
                             child: ListTile(
                               leading: CircleAvatar(
-                                backgroundColor: color.withOpacity(0.2),
+                                backgroundColor: color.withValues(alpha: 0.2),
                                 child: Text(
                                   emp['name'].toString()[0],
                                   style: TextStyle(color: color, fontWeight: FontWeight.bold),
@@ -370,7 +370,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                       children: [
                         CircleAvatar(
                           radius: 30,
-                          backgroundColor: Colors.white.withOpacity(0.2),
+                          backgroundColor: Colors.white.withValues(alpha: 0.2),
                           child: Text(
                             employeeName.isNotEmpty ? employeeName[0] : '?',
                             style: const TextStyle(fontSize: 24, color: Colors.white),
@@ -387,7 +387,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                               ),
                               Text(
                                 userData?['email'] ?? 'بدون بريد',
-                                style: TextStyle(fontSize: 12, color: Colors.white.withOpacity(0.7)),
+                                style: TextStyle(fontSize: 12, color: Colors.white.withValues(alpha: 0.7)),
                               ),
                             ],
                           ),
@@ -496,7 +496,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: const Color(0xFF1A1A2E).withOpacity(0.1),
+              color: const Color(0xFF1A1A2E).withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Icon(icon, color: const Color(0xFF1A1A2E), size: 22),
@@ -641,8 +641,8 @@ class _AdminDashboardState extends State<AdminDashboard> {
                 children: [
                   Container(
                     padding: const EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
                         colors: [Color(0xFF3B82F6), Color(0xFF2563EB)],
                       ),
                       shape: BoxShape.circle,
@@ -666,7 +666,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF3B82F6).withOpacity(0.2),
+                      color: const Color(0xFF3B82F6).withValues(alpha: 0.2),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: const Text(
@@ -799,7 +799,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.08),
+            color: Colors.black.withValues(alpha: 0.08),
             blurRadius: 15,
             offset: const Offset(0, 5),
           ),
@@ -815,7 +815,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                   'مرحباً بعودتك،',
                   style: TextStyle(
                     fontSize: 14,
-                    color: Colors.white.withOpacity(0.7),
+                    color: Colors.white.withValues(alpha: 0.7),
                   ),
                 ),
                 const SizedBox(height: 4),
@@ -831,7 +831,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF3B82F6).withOpacity(0.2),
+                    color: const Color(0xFF3B82F6).withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(
@@ -848,7 +848,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.1),
+              color: Colors.white.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(16),
             ),
             child: Column(
@@ -963,7 +963,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.04),
+              color: Colors.black.withValues(alpha: 0.04),
               blurRadius: 12,
               offset: const Offset(0, 2),
             ),
@@ -979,7 +979,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                 Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: color.withOpacity(0.1),
+                    color: color.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Icon(icon, color: color, size: 22),
@@ -1093,7 +1093,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.04),
+              color: Colors.black.withValues(alpha: 0.04),
               blurRadius: 8,
               offset: const Offset(0, 2),
             ),
@@ -1105,7 +1105,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
             Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: color.withOpacity(0.1),
+                color: color.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(14),
               ),
               child: Icon(icon, color: color, size: 28),
@@ -1175,7 +1175,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.04),
+                    color: Colors.black.withValues(alpha: 0.04),
                     blurRadius: 12,
                   ),
                 ],
@@ -1226,7 +1226,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
             Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: isLeave ? const Color(0xFF3B82F6).withOpacity(0.1) : const Color(0xFFF59E0B).withOpacity(0.1),
+                color: isLeave ? const Color(0xFF3B82F6).withValues(alpha: 0.1) : const Color(0xFFF59E0B).withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(14),
               ),
               child: Icon(
@@ -1269,7 +1269,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFF59E0B).withOpacity(0.1),
+                    color: const Color(0xFFF59E0B).withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: const Text(
@@ -1334,7 +1334,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.04),
+                    color: Colors.black.withValues(alpha: 0.04),
                     blurRadius: 12,
                   ),
                 ],
@@ -1406,7 +1406,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
               width: 45,
               height: 45,
               decoration: BoxDecoration(
-                color: statusColor.withOpacity(0.1),
+                color: statusColor.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               alignment: Alignment.center,
@@ -1448,7 +1448,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                   decoration: BoxDecoration(
-                    color: statusColor.withOpacity(0.1),
+                    color: statusColor.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(

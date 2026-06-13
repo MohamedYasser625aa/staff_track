@@ -217,7 +217,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
           'employeeId': employeeId,
           'employeeName': employeeName,
           'amount': lateDeduction,
-          'reason': 'تأخير صباحي (${lateHours} ساعة)',
+          'reason': 'تأخير صباحي ($lateHours ساعة)',
           'date': Timestamp.fromDate(now),
           'month': now.month,
           'year': now.year,
@@ -307,7 +307,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
           'employeeId': employeeId,
           'employeeName': employeeName,
           'amount': earlyDeduction,
-          'reason': 'انصراف مبكر (${shortHours} ساعة)',
+          'reason': 'انصراف مبكر ($shortHours ساعة)',
           'date': Timestamp.fromDate(now),
           'month': now.month,
           'year': now.year,
@@ -419,7 +419,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               DropdownButtonFormField<String>(
-                value: _selectedRequestType,
+                initialValue: _selectedRequestType,
                 decoration: const InputDecoration(labelText: 'نوع الطلب'),
                 items: ['إجازة', 'تأخير', 'إذن خروج', 'تعديل بيانات'].map((type) {
                   return DropdownMenuItem(value: type, child: Text(type));
@@ -478,7 +478,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
       List<Map<String, dynamic>> employeesList = [];
       
       for (var doc in employeesSnapshot.docs) {
-        final employeeData = doc.data() as Map<String, dynamic>;
+        final employeeData = doc.data();
         final empId = doc.id;
         final empName = employeeData['name'] ?? 'موظف';
         
@@ -617,9 +617,9 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       decoration: BoxDecoration(
-        color: Colors.blue.withOpacity(0.1),
+        color: Colors.blue.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.blue.withOpacity(0.2)),
+        border: Border.all(color: Colors.blue.withValues(alpha: 0.2)),
       ),
       child: Row(
         children: [
@@ -645,7 +645,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             decoration: BoxDecoration(
-              color: Colors.green.withOpacity(0.1),
+              color: Colors.green.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Text(
@@ -709,7 +709,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
                 children: [
                   CircleAvatar(
                     radius: 40,
-                    backgroundColor: Colors.white.withOpacity(0.1),
+                    backgroundColor: Colors.white.withValues(alpha: 0.1),
                     child: const Icon(Icons.person, size: 50, color: Colors.white),
                   ),
                   const SizedBox(height: 15),
@@ -720,7 +720,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
                   const SizedBox(height: 5),
                   Text(
                     employeeEmail,
-                    style: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: 12),
+                    style: TextStyle(color: Colors.white.withValues(alpha: 0.7), fontSize: 12),
                   ),
                 ],
               ),
@@ -834,16 +834,16 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
               children: [
                 Text(employeeName, style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 5),
-                Text(department, style: TextStyle(color: Colors.white.withOpacity(0.7))),
+                Text(department, style: TextStyle(color: Colors.white.withValues(alpha: 0.7))),
                 const SizedBox(height: 5),
-                Text(employeePhone, style: TextStyle(color: Colors.white.withOpacity(0.7), fontSize: 12)),
+                Text(employeePhone, style: TextStyle(color: Colors.white.withValues(alpha: 0.7), fontSize: 12)),
               ],
             ),
           ),
           Container(
             padding: const EdgeInsets.all(15),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.1),
+              color: Colors.white.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(15),
             ),
             child: Column(
@@ -865,7 +865,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10)],
+        boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10)],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -922,7 +922,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10)],
+        boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10)],
       ),
       child: Row(
         children: [
@@ -931,7 +931,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
               children: [
                 Container(
                   padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(color: Colors.blue.withOpacity(0.1), shape: BoxShape.circle),
+                  decoration: BoxDecoration(color: Colors.blue.withValues(alpha: 0.1), shape: BoxShape.circle),
                   child: const Icon(Icons.beach_access, color: Colors.blue, size: 30),
                 ),
                 const SizedBox(height: 8),
@@ -946,7 +946,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
               children: [
                 Container(
                   padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(color: Colors.red.withOpacity(0.1), shape: BoxShape.circle),
+                  decoration: BoxDecoration(color: Colors.red.withValues(alpha: 0.1), shape: BoxShape.circle),
                   child: const Icon(Icons.remove_circle, color: Colors.red, size: 30),
                 ),
                 const SizedBox(height: 8),
@@ -1013,7 +1013,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
       borderRadius: BorderRadius.circular(16),
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 16),
-        decoration: BoxDecoration(color: color.withOpacity(0.1), borderRadius: BorderRadius.circular(16)),
+        decoration: BoxDecoration(color: color.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(16)),
         child: Column(
           children: [
             Icon(icon, color: color, size: 30),
@@ -1029,7 +1029,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
     if (topEmployees.isEmpty) {
       return Container(
         padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10)]),
+        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10)]),
         child: const Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -1047,7 +1047,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
     
     return Container(
       padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10)]),
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10)]),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -1063,14 +1063,14 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
                 children: [
                   Container(
                     width: 40, height: 40,
-                    decoration: BoxDecoration(color: medalColor.withOpacity(0.2), shape: BoxShape.circle),
+                    decoration: BoxDecoration(color: medalColor.withValues(alpha: 0.2), shape: BoxShape.circle),
                     child: Center(child: Text('${index + 1}', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: medalColor))),
                   ),
                   const SizedBox(width: 12),
                   Expanded(child: Text(emp['name'], style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500))),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                    decoration: BoxDecoration(color: Colors.green.withOpacity(0.1), borderRadius: BorderRadius.circular(20)),
+                    decoration: BoxDecoration(color: Colors.green.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(20)),
                     child: Text('نسبة الحضور: ${(emp['score'] as double).toInt()}%', style: const TextStyle(color: Colors.green, fontSize: 12)),
                   ),
                 ],
@@ -1091,7 +1091,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
         final requests = snapshot.data!.docs;
         return Container(
           padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10)]),
+          decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20), boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10)]),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -1107,7 +1107,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
                     children: [
                       Container(
                         width: 45, height: 45,
-                        decoration: BoxDecoration(color: statusColor.withOpacity(0.1), shape: BoxShape.circle),
+                        decoration: BoxDecoration(color: statusColor.withValues(alpha: 0.1), shape: BoxShape.circle),
                         child: Icon(data['type'] == 'إجازة' ? Icons.beach_access : Icons.access_time, color: statusColor),
                       ),
                       const SizedBox(width: 12),
@@ -1117,7 +1117,7 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
                       ])),
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                        decoration: BoxDecoration(color: statusColor.withOpacity(0.1), borderRadius: BorderRadius.circular(20)),
+                        decoration: BoxDecoration(color: statusColor.withValues(alpha: 0.1), borderRadius: BorderRadius.circular(20)),
                         child: Text(statusText, style: TextStyle(color: statusColor, fontSize: 11)),
                       ),
                     ],

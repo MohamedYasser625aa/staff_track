@@ -105,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Container(
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.1),
+                      color: Colors.white.withValues(alpha: 0.1),
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(Icons.business_center, size: 80, color: Colors.white),
@@ -129,7 +129,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   // Email Field
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.1),
+                      color: Colors.white.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: TextField(
@@ -139,7 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.email, color: Colors.white70),
                         hintText: 'البريد الإلكتروني',
-                        hintStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
+                        hintStyle: TextStyle(color: Colors.white.withValues(alpha: 0.6)),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                           borderSide: BorderSide.none,
@@ -153,7 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   // Password Field
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.1),
+                      color: Colors.white.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: TextField(
@@ -170,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () => setState(() => obscurePassword = !obscurePassword),
                         ),
                         hintText: 'كلمة المرور',
-                        hintStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
+                        hintStyle: TextStyle(color: Colors.white.withValues(alpha: 0.6)),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                           borderSide: BorderSide.none,

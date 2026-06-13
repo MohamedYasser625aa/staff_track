@@ -15,7 +15,7 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
   DateTime _selectedMonth = DateTime.now();
   String _selectedEmployeeId = 'all';
   List<Map<String, dynamic>> _employees = [];
-  List<Map<String, dynamic>> _employeeReports = [];
+  final List<Map<String, dynamic>> _employeeReports = [];
   bool _isLoading = true;
   String? _errorMessage;
   
@@ -49,7 +49,7 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
         .get();
     
     _employees = snapshot.docs.map((doc) {
-      final data = doc.data() as Map<String, dynamic>;
+      final data = doc.data();
       return {
         'id': doc.id,
         'name': data['name'] ?? 'بدون اسم',
@@ -106,10 +106,11 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
       List<Map<String, dynamic>> attendanceDetails = [];
       
       for (var doc in attendanceSnapshot.docs) {
-        final data = doc.data() as Map<String, dynamic>;
+        final data = doc.data();
         final status = data['status'] ?? 'absent';
-        if (status == 'present') presentDays++;
-        else if (status == 'late') lateDays++;
+        if (status == 'present') {
+          presentDays++;
+        } else if (status == 'late') lateDays++;
         
         attendanceDetails.add({
           'date': data['date'] ?? '',
@@ -129,7 +130,7 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
       // 6️⃣ تجهيز تفاصيل الإجازات
       List<Map<String, dynamic>> leaveDetails = [];
       for (var doc in leaveRequestsSnapshot.docs) {
-        final data = doc.data() as Map<String, dynamic>;
+        final data = doc.data();
         String statusText = 'معلق';
         Color statusColor = Colors.orange;
         if (data['status'] == 'approved') {
@@ -157,7 +158,7 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
       // 7️⃣ تجهيز تفاصيل طلبات التأخير
       List<Map<String, dynamic>> delayDetails = [];
       for (var doc in delayRequestsSnapshot.docs) {
-        final data = doc.data() as Map<String, dynamic>;
+        final data = doc.data();
         String statusText = 'معلق';
         Color statusColor = Colors.orange;
         if (data['status'] == 'approved') {
@@ -186,7 +187,7 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
       double totalDeduction = 0;
       List<Map<String, dynamic>> deductionDetails = [];
       for (var doc in deductionsSnapshot.docs) {
-        final data = doc.data() as Map<String, dynamic>;
+        final data = doc.data();
         final amount = (data['amount'] ?? 0).toDouble();
         totalDeduction += amount;
         
@@ -258,7 +259,7 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
                 child: Row(
                   children: [
                     CircleAvatar(
-                      backgroundColor: Colors.white.withOpacity(0.2),
+                      backgroundColor: Colors.white.withValues(alpha: 0.2),
                       child: Text(
                         report['name'].toString()[0],
                         style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
@@ -275,7 +276,7 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
                           ),
                           Text(
                             report['email'],
-                            style: TextStyle(fontSize: 12, color: Colors.white.withOpacity(0.7)),
+                            style: TextStyle(fontSize: 12, color: Colors.white.withValues(alpha: 0.7)),
                           ),
                         ],
                       ),
@@ -349,7 +350,7 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
                       Container(
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: Colors.red.withOpacity(0.05),
+                          color: Colors.red.withValues(alpha: 0.05),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Row(
@@ -401,7 +402,7 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
                           margin: const EdgeInsets.only(bottom: 8),
                           padding: const EdgeInsets.all(12),
                           decoration: BoxDecoration(
-                            color: Colors.red.withOpacity(0.1),
+                            color: Colors.red.withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Row(
@@ -413,7 +414,7 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(item['reason'], style: const TextStyle(fontWeight: FontWeight.w500)),
-                                    Text('📅 ${item['date']}', style: TextStyle(fontSize: 12, color: Colors.grey)),
+                                    Text('📅 ${item['date']}', style: const TextStyle(fontSize: 12, color: Colors.grey)),
                                   ],
                                 ),
                               ),
@@ -454,8 +455,8 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
                             }
                             return Container(
                               padding: const EdgeInsets.all(12),
-                              decoration: BoxDecoration(
-                                border: Border(bottom: BorderSide(color: const Color(0xFFEEEEEE))),
+                              decoration: const BoxDecoration(
+                                border: Border(bottom: BorderSide(color: Color(0xFFEEEEEE))),
                               ),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -473,7 +474,7 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
                                       Container(
                                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                                         decoration: BoxDecoration(
-                                          color: statusColor.withOpacity(0.1),
+                                          color: statusColor.withValues(alpha: 0.1),
                                           borderRadius: BorderRadius.circular(20),
                                         ),
                                         child: Text(statusText, style: TextStyle(fontSize: 11, color: statusColor)),
@@ -530,7 +531,7 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: statusColor.withOpacity(0.1),
+        color: statusColor.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
@@ -549,7 +550,7 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             decoration: BoxDecoration(
-              color: statusColor.withOpacity(0.2),
+              color: statusColor.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Text(statusText, style: TextStyle(fontSize: 11, color: statusColor)),
@@ -618,7 +619,7 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: Colors.white,
-              boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.04), blurRadius: 8)],
+              boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.04), blurRadius: 8)],
             ),
             child: Row(
               children: [
@@ -660,7 +661,7 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
                 const SizedBox(width: 12),
                 Expanded(
                   child: DropdownButtonFormField<String>(
-                    value: _selectedEmployeeId,
+                    initialValue: _selectedEmployeeId,
                     decoration: InputDecoration(
                       prefixIcon: const Icon(Icons.person, color: Color(0xFF3B82F6), size: 20),
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
@@ -702,7 +703,7 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(20),
-                                  boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.04), blurRadius: 8)],
+                                  boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.04), blurRadius: 8)],
                                 ),
                                 child: InkWell(
                                   onTap: () => _showEmployeeDetails(report),
@@ -714,7 +715,7 @@ class _AttendanceReportScreenState extends State<AttendanceReportScreen> {
                                         Row(
                                           children: [
                                             CircleAvatar(
-                                              backgroundColor: rate >= 80 ? Colors.green.withOpacity(0.1) : Colors.orange.withOpacity(0.1),
+                                              backgroundColor: rate >= 80 ? Colors.green.withValues(alpha: 0.1) : Colors.orange.withValues(alpha: 0.1),
                                               child: Text(
                                                 report['name'].toString()[0],
                                                 style: TextStyle(

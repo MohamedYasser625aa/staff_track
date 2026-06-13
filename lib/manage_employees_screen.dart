@@ -44,7 +44,7 @@ class _ManageEmployeesScreenState extends State<ManageEmployeesScreen> {
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
-                BoxShadow(color: Colors.black.withOpacity(0.04), blurRadius: 8),
+                BoxShadow(color: Colors.black.withValues(alpha: 0.04), blurRadius: 8),
               ],
             ),
             child: Row(
@@ -165,7 +165,7 @@ class _ManageEmployeesScreenState extends State<ManageEmployeesScreen> {
                         border: isActive ? null : Border.all(color: Colors.grey.shade200),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.04),
+                            color: Colors.black.withValues(alpha: 0.04),
                             blurRadius: 8,
                             offset: const Offset(0, 2),
                           ),
@@ -179,9 +179,9 @@ class _ManageEmployeesScreenState extends State<ManageEmployeesScreen> {
                               radius: 22,
                               backgroundColor: isActive
                                   ? (role == 'manager' 
-                                      ? const Color(0xFF8B5CF6).withOpacity(0.1)
-                                      : const Color(0xFF3B82F6).withOpacity(0.1))
-                                  : Colors.grey.withOpacity(0.1),
+                                      ? const Color(0xFF8B5CF6).withValues(alpha: 0.1)
+                                      : const Color(0xFF3B82F6).withValues(alpha: 0.1))
+                                  : Colors.grey.withValues(alpha: 0.1),
                               child: Text(
                                 name.isNotEmpty ? name[0] : '?',
                                 style: TextStyle(
@@ -222,8 +222,8 @@ class _ManageEmployeesScreenState extends State<ManageEmployeesScreen> {
                               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                               decoration: BoxDecoration(
                                 color: role == 'manager'
-                                    ? const Color(0xFF8B5CF6).withOpacity(0.1)
-                                    : const Color(0xFF3B82F6).withOpacity(0.1),
+                                    ? const Color(0xFF8B5CF6).withValues(alpha: 0.1)
+                                    : const Color(0xFF3B82F6).withValues(alpha: 0.1),
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Text(

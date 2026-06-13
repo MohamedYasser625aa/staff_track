@@ -53,7 +53,7 @@ class _EmployeeProfileScreenState extends State<EmployeeProfileScreen> {
   // إعدادات التطبيق
   bool _notificationsEnabled = true;
   String _selectedLanguage = 'ar';
-  String _appVersion = '1.0.0';
+  final String _appVersion = '1.0.0';
   bool _darkMode = false;
 
   @override
@@ -261,7 +261,7 @@ class _EmployeeProfileScreenState extends State<EmployeeProfileScreen> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         decoration: BoxDecoration(
-          color: color.withOpacity(0.1),
+          color: color.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
@@ -464,7 +464,7 @@ class _EmployeeProfileScreenState extends State<EmployeeProfileScreen> {
                       _notificationsEnabled = value;
                     });
                   },
-                  activeColor: const Color(0xFF2196F3),
+                  activeThumbColor: const Color(0xFF2196F3),
                 ),
                 const Divider(),
                 ListTile(
@@ -499,7 +499,7 @@ class _EmployeeProfileScreenState extends State<EmployeeProfileScreen> {
                       _darkMode = value;
                     });
                   },
-                  activeColor: const Color(0xFF2196F3),
+                  activeThumbColor: const Color(0xFF2196F3),
                 ),
                 const Divider(),
                 ListTile(
@@ -641,7 +641,7 @@ class _EmployeeProfileScreenState extends State<EmployeeProfileScreen> {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
-                      color: _getRoleColor().withOpacity(0.1),
+                      color: _getRoleColor().withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(_getRoleText(), style: TextStyle(color: _getRoleColor(), fontSize: 12, fontWeight: FontWeight.w500)),
@@ -669,7 +669,7 @@ class _EmployeeProfileScreenState extends State<EmployeeProfileScreen> {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           boxShadow: [
-            BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 10, offset: const Offset(0, 5)),
+            BoxShadow(color: Colors.black.withValues(alpha: 0.1), blurRadius: 10, offset: const Offset(0, 5)),
           ],
         ),
         child: Stack(
@@ -720,7 +720,7 @@ class _EmployeeProfileScreenState extends State<EmployeeProfileScreen> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.04), blurRadius: 12)],
+        boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.04), blurRadius: 12)],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -748,7 +748,7 @@ class _EmployeeProfileScreenState extends State<EmployeeProfileScreen> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.04), blurRadius: 12)],
+        boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.04), blurRadius: 12)],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -777,7 +777,7 @@ class _EmployeeProfileScreenState extends State<EmployeeProfileScreen> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.04), blurRadius: 12)],
+        boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.04), blurRadius: 12)],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
