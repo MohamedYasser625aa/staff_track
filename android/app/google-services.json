@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "931751211498",
+    "project_id": "stafftrack-85d76",
+    "storage_bucket": "stafftrack-85d76.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931751211498:android:8208725878b8e4f7b14293",
+        "android_client_info": {
+          "package_name": "com.example.staff_track"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATa3HZD_Vl0qYlzBq-GRFCjf2y72lodMU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
